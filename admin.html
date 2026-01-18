@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="admin.css">
+  <script src="config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.6/dist/umd/supabase.min.js"></script>
+  <script defer src="admin.js"></script>
+
+</head>
+<body>
+  <header>
+    <h1 id="adminStatus">Welcome Admin 👑</h1>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </header>
+
+  <main>
+
+    <section class="stats">
+      <div class="card fade-in">
+        <h3>Total Users</h3>
+        <p id="totalUsers">0</p>
+      </div>
+      <div class="card fade-in delay-1">
+        <h3>Total Earnings</h3>
+        <p id="adminEarnings">₦0.00</p>
+      </div>
+    </section>
+    <section class="transactions">
+      <h2>Transaction History</h2>
+      <div id="transactionList" class="transaction-list">
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Dice Roll Platform | Demo Version
+    </footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,150 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  
+  body {
+    background: #1e1e2f;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #27293d;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  }
+  
+  header h1 {
+    font-size: 1.8rem;
+    animation: fadeSlideDown 0.7s ease forwards;
+  }
+  
+  .logout-btn {
+    padding: 0.5rem 1rem;
+    background: #ff4d4d;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .logout-btn:hover {
+    background: #ff1a1a;
+  }
+  
+  
+  .stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+    gap: 1rem;
+  }
+  
+  .card {
+    flex: 1;
+    background: #2e2f45;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  
+  .card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: #bbb;
+  }
+  
+  .card p {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+
+  .transactions {
+    padding: 2rem;
+  }
+  
+  .transactions h2 {
+    margin-bottom: 1rem;
+    color: #bbb;
+  }
+  
+  .transaction-list {
+    max-height: 400px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .transaction {
+    background: #2e2f45;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadeSlideUp 0.6s ease forwards;
+  }
+  
+  .transaction span, .transaction small {
+    color: #fff;
+  }
+  
+ 
+  @keyframes fadeSlideDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes fadeSlideUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  .fade-in {
+    animation: fadeSlideUp 0.6s forwards;
+  }
+  .fade-in.delay-1 {
+    animation-delay: 0.2s;
+  }
+  .fade-in.delay-2 {
+    animation-delay: 0.4s;
+  }
+  
+
+  .transaction-list::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .transaction-list::-webkit-scrollbar-thumb {
+    background: #444;
+    border-radius: 4px;
+  }
+  
+  .transaction-list::-webkit-scrollbar-track {
+    background: #1e1e2f;
+  }
+  footer {
+    background: #e3e8eb;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #94a3b8;
+  }

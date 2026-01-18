@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+* {
+   box-sizing: border-box;
+   font-family: 'Segoe UI', Tahoma, sans-serif;
+  }
+    
+ body {
+  background: linear-gradient(135deg, #141e30, #243b55);
+  color: #fff;
+}
+
+    
+   header {
+  position: relative; 
+
+  text-align: center;
+  background: #94a3b8;
+  font-size: 28px;
+  font-weight: bold;
+
+  padding: 20px;
+
+  }
+
+.theme-switch {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  margin-top: 20px;
+  z-index: 1000;
+}
+
+
+.theme-switch input {
+  display: none;
+}
+
+.slider {
+  width: 50px;
+  height: 26px;
+  background: #ccc;
+  border-radius: 30px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.4s;
+}
+
+.slider::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  transition: 0.4s;
+}
+
+body.light {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+body.light header,
+body.light footer {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+body.light .card {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+ main {
+  padding: 30px;
+  max-width: 1100px;
+  margin: auto;
+}
+    
+.card {
+  background: #1e293b;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+    
+        h2 {
+          margin-top: 0;
+          color: #38bdf8;
+        }
+    
+        input, button {
+          padding: 10px;
+          border-radius: 6px;
+          border: none;
+          font-size: 16px;
+        }
+    
+        input {
+          width: 200px;
+          margin-right: 10px;
+          color: #fff;
+        }
+    
+        button {
+          cursor: pointer;
+          background: #38bdf8;
+          margin-top: 10px;
+          color: #f1e9e9;
+          font-weight: bold;
+          font-size: 1em;
+        }
+    
+        button:hover {
+          background: #96aab3;
+        }
+    
+        .balances {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 15px;
+        }
+    
+        .dice {
+          font-size: 80px;
+          margin: 15px 0;
+        }
+    
+        .result {
+          font-size: 18px;
+          margin-top: 10px;
+          font-weight: bold;
+        }
+
+        .transaction {
+          display: flex;
+          justify-content: space-between;
+          padding: 6px 10px;
+          margin-bottom: 6px;
+          background: #dacccc;
+          border-radius: 6px;
+          font-size: 14px;
+          }
+
+    
+        footer {
+          background: #e3e8eb;
+          text-align: center;
+          padding: 15px;
+          margin-top: 40px;
+          font-size: 14px;
+          color: #94a3b8;
+        }
+    
+        .players {
+          display: flex;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+    
+        .player {
+          background: #334155;
+          color: #e2e8f0;
+          padding: 8px 14px;
+          border-radius: 20px;
+          font-size: 14px;
+        }
+
+        #head{
+          display: flex;
+          justify-content: space-between;
+        }
+
+        #head button{
+          font-size: 0.6em;
+          padding: 2px;
+          border-radius: 40px;
+          background: transparent;
+          position: relative;
+          color: rgb(139, 130, 130); 
+        }
+
+        #diceRoll{
+          margin: auto;
+          margin-top: 20px;
+        }
+      </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="backgroundColour">
+    <header>
+<div id="head">
+  <button onclick="logout()">Logout</button>
+      <label class="theme-switch">
+        <input type="checkbox" id="themeToggle">
+        <span class="slider"></span>
+      </label>
+      <div id="diceRoll">
+        🎲 Dice Roll Game
+      </div>
+       
+</div>
+      
+        
+      </header>
+      
+      <main>
+        <div class="card">
+          <div class="balances">
+            <div>User Balance: ₦<span id="userBalance">0</span></div>
+            
+          </div>
+        </div>
+      
+        <div class="card">
+          <h2>Deposit Funds</h2>
+          <input type="number" id="depositAmount" placeholder="Enter amount">
+          <button onclick="deposit()">Deposit</button>
+        </div>
+
+        <div class="card">
+          <h2>Roll the Dice</h2>
+          <input type="number" id="playAmount" placeholder="Amount to play">
+          <button onclick="rollDice()">Roll Dice</button>
+      
+          <div class="dice" id="diceDisplay">🎲 🎲</div>
+          <div class="result" id="resultText"></div>
+        </div>
+      
+        <div class="card">
+          <h2>Withdraw Funds</h2>
+          <input type="number" id="withdrawAmount" placeholder="Amount to withdraw">
+          <button onclick="withdraw()">Withdraw</button>
+        </div>
+        <div class="card">
+          <h2>Transaction History</h2>
+          <div id="transactionList"></div>
+        </div>
+      
+        <div class="card">
+          <h2>Users Playing Now</h2>
+          <div class="players" id="playersList"></div>
+        </div>
+      
+      </main>
+      
+      <footer>
+        © 2026 Dice Roll Platform | Demo Version
+      </footer>
+
+     <div id="container">
+        <h1>SITE UNDER CONSTRUCTION</h1>
+        
+     </div>
+     <script src="config.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.6/dist/umd/supabase.min.js"></script>
+     <script src="dashboard.js"></script>
+</body>
+</html>

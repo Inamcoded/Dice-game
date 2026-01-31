@@ -10,38 +10,55 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-         
-         <form id="loginForm" onsubmit="login(event)">
-            <div class="container">
-            <h2>Contact Login</h2>
-               <input type="email" name="email" id="email" placeholder="you@gmail.com">
-               <div class="password-box">
-                <input type="password" name="password" id="password" placeholder="password" required>
-                <i class="fa fa-eye"  id="icon"></i>
-               </div>
-               
-               <button class="submit" type="submit">Login</button><br> 
-           <h3><a href="indus.html" target="_blank">Sign up</a> if you dont have an account</h3>
-           </div>
-           <div class="dolls-area">
-            <div class="doll">
-              <div class="eye left"><div class="pupil"></div></div>
-              <div class="eye right"><div class="pupil"></div></div>
-              <div class="mouth"></div>
-            </div>
-          
-            <div class="doll">
-              <div class="eye left"><div class="pupil"></div></div>
-              <div class="eye right"><div class="pupil"></div></div>
-              <div class="mouth"></div>
+
+      <div class="lamp-login-wrapper">
+    
+        
+        <div class="lamp-area">
+          <div class="lamp">
+            
+            <div class="lamp-head"></div>
+            <div class="lamp-light"></div>
+            <div class="lamp-stand"></div>
+            <div class="lamp-base"></div>
+    
+            <div class="pull-cord" id="lampSwitch">
+              <span class="knob"></span>
+
+              <p class="lamp-hint">
+                Drag the knob to log in 
+              </p>
+              
             </div>
           </div>
+        </div>
+    
+        
+        <div class="login-area lamp-off">
           
-        
-        </form>
-
-        
-        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.6/dist/umd/supabase.min.js"></script>
-         <script src="login.js"></script>
+          <form id="loginForm" onsubmit="login(event)">
+            <div class="container">
+              <h2>Contact Login</h2>
+    
+              <input type="email" name="email" id="email" placeholder="you@gmail.com">
+    
+              <div class="password-box">
+                <input type="password" name="password" id="password" placeholder="password" required>
+                <i class="fa fa-eye" id="icon"></i>
+              </div>
+    
+              <button class="submit" type="submit">Login</button><br>
+              <h3><a href="indus.html" target="_blank">Sign up</a> if you dont have an account</h3>
+            </div>
+          </form>
+        </div>
+    
+      </div>
+    
+      <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.6/dist/umd/supabase.min.js"></script>
+      <script src="login.js"></script>
+      <script src="lamp.js"></script>
+    
     </body>
+    
 </html>
